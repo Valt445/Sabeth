@@ -3,15 +3,23 @@
 #include <vector>
 #include <glm/glm.hpp>
 
+struct Material
+{
+	glm::vec3 Albedo{ 0.7f, 0.7f, 0.7f };
+	float Roughness = 1.0f;
+	float Metallic = 0.0f;
+};
+
 struct Sphere
 {
 	glm::vec3 Position{0.0f, 0.0f, 0.0f};
 	float Radius = 0.5f;
+	int materialIndex = 0;
 
-	glm::vec3 Albedo{ 0.7f, 0.7f, 0.7f };
 };
 
 struct Scene
 {
+	std::vector<Material> Materials;
 	std::vector<Sphere> Spheres;
 };
